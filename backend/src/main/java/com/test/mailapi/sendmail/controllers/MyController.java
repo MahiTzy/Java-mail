@@ -21,8 +21,10 @@ public class MyController {
     }
     @PostMapping("/sendemail")
     public ResponseEntity<?> sendMail(@RequestBody EmailMessage message) {
-        myService.sendEmail(message.getBody(), message.getSubject(), message.getTo());
-        System.out.println("Message: " + message);
-        return ResponseEntity.ok().build();
+        // myService.sendEmail(message.getBody(), message.getSubject(), message.getTo());
+        // System.out.println("Message: " + message);
+        // myService.sendSimpleMail(message);
+        myService.sendMailWithAttachment(message);
+        return ResponseEntity.ok("Email sent successfully");
     }
 }
